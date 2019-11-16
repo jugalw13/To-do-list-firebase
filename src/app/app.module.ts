@@ -17,6 +17,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthService } from './auth.service';
 
 import { environment } from '../environments/environment';
+import { TopnavComponent } from './topnav/topnav.component';
+import { NavbarService } from './navbar.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { environment } from '../environments/environment';
     LoginComponent,
     SignupComponent,
     TodoComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

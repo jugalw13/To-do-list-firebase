@@ -9,7 +9,7 @@
               <mat-label>Enter your email</mat-label>
               <input
                 matInput
-                [(ngModel)] = "userEmail"
+                [(ngModel)]="userEmail"
                 placeholder="name@domain.com"
                 [formControl]="email"
                 required
@@ -24,7 +24,7 @@
               <mat-label>Password</mat-label>
               <input
                 matInput
-                [(ngModel)] = "userPassword"
+                [(ngModel)]="userPassword"
                 placeholder=""
                 [type]="hide ? 'password' : 'text'"
               />
@@ -43,8 +43,25 @@
             </mat-form-field>
           </div>
           <div class="form-group-btn">
-            <button mat-flat-button color="primary" class="btn" (click)="tryLogin()">Log In</button>
-            <button mat-stroked-button color="accent" class="btn" (click)="clear()">Clear</button>
+            <button
+              mat-flat-button
+              color="primary"
+              class="btn"
+              (click)="tryLogin()"
+            >
+              Log In
+            </button>
+            <button
+              mat-stroked-button
+              color="accent"
+              class="btn"
+              (click)="clear()"
+            >
+              Clear
+            </button>
+          </div>
+          <div class="form-group">
+            
           </div>
         </div>
       </mat-card-content>
