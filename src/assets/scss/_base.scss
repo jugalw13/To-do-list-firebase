@@ -1,0 +1,5 @@
+@import "./mixin";
+
+html {
+  @include responsive-type(font-size, 320px, 1440px, 16px, 16px);
+}
