@@ -1,0 +1,46 @@
+.login-wrapper {
+  padding: 2%;
+  height: 95%;
+
+  .card-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+      width: calc(100vw / 3);
+      background-color: rgb(255, 255, 255, 0.1);
+
+      @media all and (max-width: 700px) {
+        width: calc(100vw / 1.5);
+      }
+
+      .title {
+        text-align: center;
+        color: white;
+      }
+
+      .form {
+        padding: 2%;
+
+        .form-group {
+          color: white;
+
+          .form-field {
+            width: 100%;
+          }
+        }
+
+        .form-group-btn {
+          display: flex;
+          justify-content: center;
+
+          .btn {
+            margin: 1.5%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,53 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <div class="card-wrapper">
+    <mat-card [class.mat-elevation-z8]="true" class="card">
+      <mat-card-title class="title">To Do List App</mat-card-title>
+      <mat-card-content>
+        <div class="form">
+          <div class="form-group">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Enter your email</mat-label>
+              <input
+                matInput
+                [(ngModel)] = "userEmail"
+                placeholder="name@domain.com"
+                [formControl]="email"
+                required
+              />
+              <mat-error *ngIf="email.invalid">{{
+                getErrorMessage()
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [(ngModel)] = "userPassword"
+                placeholder=""
+                [type]="hide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                color="primary"
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="form-group-btn">
+            <button mat-flat-button color="primary" class="btn" (click)="tryLogin()">Log In</button>
+            <button mat-stroked-button color="accent" class="btn" (click)="clear()">Clear</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

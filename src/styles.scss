@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   overflow-x: hidden;
   margin: 0;
@@ -7,10 +8,10 @@ html, body {
 
 body {
   margin: 0;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;
-  background-image: linear-gradient(to bottom right, #302B63, #0F0C29);
+  background-image: linear-gradient(to bottom right, #302b63, #0f0c29);
 }
