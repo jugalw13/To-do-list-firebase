@@ -14,6 +14,16 @@
                 [formControl]="email"
                 required
               />
+              <button
+                mat-button
+                *ngIf="userEmail"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="userEmail = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
               <mat-error *ngIf="email.invalid">{{
                 getErrorMessage()
               }}</mat-error>
@@ -28,40 +38,59 @@
                 placeholder=""
                 [type]="hide ? 'password' : 'text'"
               />
-              <button
-                mat-icon-button
-                color="primary"
-                matSuffix
-                (click)="hide = !hide"
-                [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide"
-              >
-                <mat-icon>{{
-                  hide ? "visibility_off" : "visibility"
-                }}</mat-icon>
-              </button>
+              <div class="suffix" matSuffix>
+                <button
+                  mat-button
+                  *ngIf="userPassword"
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="userPassword = ''"
+                >
+                  <mat-icon>close</mat-icon>
+                </button>
+                <button
+                  mat-icon-button
+                  color="primary"
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </div>
             </mat-form-field>
           </div>
           <div class="form-group-btn">
             <button
-              mat-flat-button
-              color="primary"
+              mat-stroked-button
+              color="accent"
               class="btn"
               (click)="tryLogin()"
             >
               Log In
             </button>
             <button
-              mat-stroked-button
-              color="accent"
+              mat-flat-button
+              color="primary"
               class="btn"
-              (click)="clear()"
+              routerLink="/signup"
             >
-              Clear
+              Sign Up
             </button>
           </div>
-          <div class="form-group">
-            
+          <div class="form-group-google">
+            <button class="btn" mat-flat-button (click)="signInWithGoogle()">
+              <div class="btn-wrapper">
+                <img
+                  class="img-responsive"
+                  src="assets/google_sign_in.svg"
+                  alt="google icon"
+                />
+                <p>Sign in With Google</p>
+              </div>
+            </button>
           </div>
         </div>
       </mat-card-content>

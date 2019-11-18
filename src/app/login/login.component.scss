@@ -26,18 +26,39 @@
 
         .form-group {
           color: white;
+          margin: 2%;
 
           .form-field {
             width: 100%;
+
+            .suffix {
+              display: flex;
+            }
           }
         }
 
         .form-group-btn {
           display: flex;
           justify-content: center;
+          margin: 2%;
 
           .btn {
             margin: 1.5%;
+          }
+        }
+
+        .form-group-google {
+          margin: 2%;
+
+          .btn {
+            width: 100%;
+
+            .btn-wrapper {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
           }
         }
       }
