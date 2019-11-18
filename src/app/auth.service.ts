@@ -54,10 +54,21 @@ export class AuthService {
     if (this.isLoggedIn) {
       this.afAuth.auth.signOut().then(() => {
         console.log('Successfully Logged Out');
+        localStorage.removeItem('user');
         this.router.navigate(['/']);
       });
     } else {
       console.log('Not signed-in to logout');
     }
+  }
+
+  signUpWithEmailAndPassword(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password).then((userData) => {
+        console.log('User Registered');
+        resolve(userData);
+      });
+    });
+
   }
 }

@@ -39,9 +39,4 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this.authService.loginWithGoogle();
   }
-
-  clear() {
-    this.userEmail = '';
-    this.userPassword = '';
-  }
 }
