@@ -1,0 +1,27 @@
+@import "../../assets/scss/core.scss";
+.page-wrapper {
+  padding: 2%;
+  height: 95%;
+
+  .card-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+      width: calc(100vw / 3);
+      background-color: rgba(255, 255, 255, 0.1);
+
+      @media all and (max-width: 700px) {
+        width: calc(100vw / 1.5);
+      }
+
+      p {
+        color: white;
+        text-align: center;
+        @include responsive-type(font-size, 20em, 90em, 1.5em, 3em);
+      }
+    }
+  }
+}
