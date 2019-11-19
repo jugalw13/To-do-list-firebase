@@ -1,3 +1,9 @@
 <div *ngIf="navbarService.visible">
-  <button (click)="tryLogout()">Logout</button>
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row>
+      <span routerLink="/">To Do List</span>
+      <span class="spacer"></span>
+      <button mat-button (click)="tryLogout()">Logout</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
