@@ -1,1 +1,41 @@
-<p>todo works!</p>
+<div class="wrapper">
+  <div class="form-group">
+    <div class="input-list-item">
+      <div class="form-field">
+        <mat-form-field class="input-form-field">
+          <input
+            matInput
+            placeholder="Enter item"
+            name="todoItem"
+            id="todoItem"
+            [(ngModel)]="inputItem"
+            (keyup.enter)="addItem()"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="dataItems">
+    <div class="item-wrapper" *ngFor="let item of todoList">
+      <div class="itemList">
+        <div class="list-item">
+          <div class="each-item" [ngClass]="{ complete: item.complete }">
+            {{ item.name }}
+          </div>
+        </div>
+      </div>
+      <div class="actionButton">
+        <div class="editButton">
+          <i class="material-icons" (click)="editItem(item)">
+            edit
+          </i>
+        </div>
+        <div class="delButton">
+          <i class="material-icons" (click)="deleteItem(item)">
+            delete
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

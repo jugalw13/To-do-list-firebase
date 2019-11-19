@@ -1,0 +1,75 @@
+@import "../../assets/scss/core.scss";
+
+.wrapper {
+  display: block;
+  margin: 0 auto;
+
+  .form-group {
+    .input-list-item {
+      display: flex;
+      justify-content: center;
+      margin: 5px;
+
+      .form-field {
+        width: 40%;
+        align-self: center;
+        margin: 10px;
+
+        .input-form-field {
+          width: 100%;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .dataItems {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+
+    .item-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: linear-gradient(to bottom left, #0f0c29, #302b63);
+      box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.6);
+
+      .itemList {
+        margin: 10px;
+
+        .list-item {
+          padding: 0;
+          margin: 0;
+
+          .each-item {
+            @include responsive-type(font-size, 20em, 90em, 0.75em, 1.5em);
+            word-break: break-all;
+            color: white;
+          }
+
+          .complete {
+            text-decoration: line-through;
+          }
+        }
+      }
+
+      .actionButton {
+        margin-left: auto;
+        display: flex;
+
+        .delButton, .editButton {
+          align-self: center;
+          margin: 10px 15px 10px 10px;
+          width: 24px;
+          height: 24px;
+          background-color: rgba(255, 255, 255, 0.692);
+          border-radius: 50%;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
