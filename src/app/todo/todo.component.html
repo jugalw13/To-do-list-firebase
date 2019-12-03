@@ -16,20 +16,13 @@
     </div>
   </div>
   <div class="dataItems">
-    <div class="item-wrapper" *ngFor="let item of todoList">
+    <div class="item-wrapper" *ngFor="let item of items">
       <div class="itemList">
         <div class="list-item">
-          <div class="each-item" [ngClass]="{ complete: item.complete }">
-            {{ item.name }}
-          </div>
+          {{ item.name }}
         </div>
       </div>
       <div class="actionButton">
-        <div class="editButton">
-          <i class="material-icons" (click)="editItem(item)">
-            edit
-          </i>
-        </div>
         <div class="delButton">
           <i class="material-icons" (click)="deleteItem(item)">
             delete

@@ -1,36 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
+import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { User } from 'firebase';
+
+interface ToDo {
+  name: string;
+}
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']
 })
+
 export class TodoComponent implements OnInit {
 
   inputItem: string;
-  todoList = [];
+  itemsList: AngularFirestoreCollection<ToDo>;
+  items = []
   count = 0;
+  user: User;
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(private navbarService: NavbarService, private afStore: AngularFirestore) {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.itemsList = this.afStore.collection(`users/${this.user.uid}/items`);
+    this.itemsList.valueChanges().subscribe(item => {
+      this.items = item;
+    });
+  }
 
   addItem() {
-    const item = {
-      complete: false,
-      name: this.inputItem
-    };
-    if (this.todoList.filter(test => test.name === item.name).length === 0) {
-      this.todoList.push(item);
-    }
-    this.inputItem = '';
+
   }
 
   deleteItem(item: any) {
-    this.todoList = this.todoList.filter(todo => todo.name !== item.name);
-  }
-
-  editItem(item) {
-    item.complete = !item.complete;
+    // this.todoList = this.todoList.filter(todo => todo.name !== item.name);
   }
 
   ngOnInit() {
