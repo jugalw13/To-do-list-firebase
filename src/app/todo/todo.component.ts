@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { User } from 'firebase';
 
 interface ToDo {
+  id: string;
   name: string;
 }
 
@@ -18,12 +19,18 @@ export class TodoComponent implements OnInit {
 
   inputItem: string;
   itemsList: AngularFirestoreCollection<ToDo>;
-  items = []
+  items = [];
   count = 0;
   user: User;
 
   constructor(private navbarService: NavbarService, private afStore: AngularFirestore) {
-    this.user = JSON.parse(localStorage.getItem('user'));
+    this.refreshItems();
+  }
+
+  get User() { return JSON.parse(localStorage.getItem('user')); }
+
+  refreshItems() {
+    this.user = this.User;
     this.itemsList = this.afStore.collection(`users/${this.user.uid}/items`);
     this.itemsList.valueChanges().subscribe(item => {
       this.items = item;
@@ -31,11 +38,19 @@ export class TodoComponent implements OnInit {
   }
 
   addItem() {
-
+    const item = {
+      name: this.inputItem
+    };
+    let id: string;
+    this.afStore.collection(`users/${this.user.uid}/items`).add(item).then((ref) => {
+      id = ref.id;
+      this.afStore.collection(`users/${this.user.uid}/items`).doc(id).update({ id });
+    });
+    this.inputItem = '';
   }
 
   deleteItem(item: any) {
-    // this.todoList = this.todoList.filter(todo => todo.name !== item.name);
+    this.afStore.collection(`users/${this.user.uid}/items`).doc(item.id).delete();
   }
 
   ngOnInit() {
