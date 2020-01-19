@@ -70,7 +70,7 @@
                 matInput
                 [(ngModel)]="confirmPassword"
                 placeholder=""
-                [type]="hide ? 'password' : 'text'"
+                [type]="confirmHide ? 'password' : 'text'"
                 required
               />
               <div class="suffix" matSuffix>
@@ -88,10 +88,10 @@
                   color="primary"
                   (click)="confirmHide = !confirmHide"
                   [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide"
+                  [attr.aria-pressed]="confirmHide"
                 >
                   <mat-icon>{{
-                    hide ? "visibility_off" : "visibility"
+                    confirmHide ? "visibility_off" : "visibility"
                   }}</mat-icon>
                 </button>
               </div>
